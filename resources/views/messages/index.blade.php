@@ -11,13 +11,15 @@
             <thead>
                 <tr>
                     <th>id</th>
+                    <th>タイトル</th>
                     <th>メッセージ</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($messages as $message)
                 <tr>
-                    <td><a class="link link-hover text-info" href="{{ route('messages.show', $message->id) }}">{{ $message->id }}</a></td>
+                    <td><a class="link link-hover link-info" href="{{ route('messages.show', $message->id) }}">{{ $message->id }}</a></td>
+                    <td>{{ $message->title }}
                     <td>{{ $message->content }}</td>
                 </tr>
                 @endforeach
@@ -25,7 +27,7 @@
         </table>
     @endif
 
-    {{-- メッセージ作成ページへのリンク --}}    {{-- 追加 --}}
-    <a class="btn btn-neutral" href="{{ route('messages.create') }}">新規メッセージの投稿</a>    {{-- 追加 --}}
+    {{-- メッセージ作成ページへのリンク --}}
+    <a class="btn btn-neutral" href="{{ route('messages.create') }}">新規メッセージの投稿</a>
 
 @endsection
